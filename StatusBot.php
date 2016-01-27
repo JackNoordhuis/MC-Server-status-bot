@@ -10,7 +10,7 @@ $server = new statusbot\ServerQuery("Play.network.net", 19132, "mcpe");
 $server->query();// updates the data from the servers
 
 // Eampe of how to use the single server Query in a tweet
-$serverTweet = "Your Server Status!\n\nPlayers: " . $server->getOnlinePlayers() . "/" . $server->getMaxPlayers() . "\n Server is " . ($server->isOnline() ? "online" : "offline");
+$serverTweet = "Your Server Status!\n\nPlayers: " . (int) $server->getOnlinePlayers() . "/" . (int) $server->getMaxPlayers() . "\n Server is " . ($server->isOnline() ? "online" : "offline");
 
 /**
  * Gamemode query
@@ -28,7 +28,7 @@ $gamemode = new statusbot\GamemodeQuery($servers);
 $gamemode->query(); // updates the data from the servers
 
 // Example of how to use the the gamemode Query in a tweet
-$gamemodeTweet = "Your Gamemode Status!\n\nGamemode\nPlayers: " . $gamemode->getOnlinePlayers() . "/" . $gamemode->getMaxPlayers() . "\nServers: " . $gamemode->getOnlineServers() . "/" . $gamemode->getMaxServers();
+$gamemodeTweet = "Your Gamemode Status!\n\nGamemode\nPlayers: " . (int) $gamemode->getOnlinePlayers() . "/" . (int) $gamemode->getMaxPlayers() . "\nServers: " . (int) $gamemode->getOnlineServers() . "/" . (int) $gamemode->getMaxServers();
 
 /**
  * Network Query
@@ -49,14 +49,14 @@ $network = new statusbot\NetworkQuery($gamemodes);
 $network->query();
 
 // Example of how to use the the network Query in a tweet
-$networkTweet = "Network Status!\n Example:\n  Players: " . $network->getOnlinePlayers("example") . "/" . $network->getMaxPlayers("example") . "  Servers: " . $network->getOnlineServers("example") . "/" . $network->getMaxServers("example") . "Example2:" . "\n  Players: " . $network->getOnlinePlayers("2example") . "/" . $network->getMaxPlayers("2example") . "\n  Servers: " . $network->getOnlineServers("2example") . "/" . $network->getMaxServers("2example");
+$networkTweet = "Network Status!\n Example:\n  Players: " . (int) $network->getOnlinePlayers("example") . "/" . (int) $network->getMaxPlayers("example") . "  Servers: " . (int) $network->getOnlineServers("example") . "/" . (int) $network->getMaxServers("example") . "Example2:" . "\n  Players: " . (int) $network->getOnlinePlayers("2example") . "/" . (int) $network->getMaxPlayers("2example") . "\n  Servers: " . (int) $network->getOnlineServers("2example") . "/" . (int) $network->getMaxServers("2example");
 
 
 /**
  * Tweet!
  */
 
-// Edit these to match your twitter accounts info (Must be a registered development account)
+// Edit these to match your twitter apps info (Must be a registered application account)
 $consumerKey = "";
 $consumerSecret= "";
 $accessToken = "";

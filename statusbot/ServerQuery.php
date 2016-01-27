@@ -38,12 +38,12 @@ class ServerQuery {
         }
         
         public function getOnlinePlayers() {
-                if(!$this->isQuery($this->lastQuery)) return null;
+                if(!$this->isQuery($this->lastQuery)) return 0;
                 return $this->lastQuery["players"]["online"];
         }
         
         public function getMaxPlayers() {
-                if(!$this->isQuery($this->lastQuery)) return null;
+                if(!$this->isQuery($this->lastQuery)) return 0;
                 return $this->lastQuery["players"]["max"];
         }
 }
